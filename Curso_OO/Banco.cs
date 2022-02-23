@@ -11,15 +11,15 @@ namespace Curso_OO
 
         CultureInfo CI = CultureInfo.InvariantCulture;
 
-        public Banco(int numeroconta, string nome, double inicial)
-        {
-            Nome = nome; NumConta = numeroconta; Inicial = inicial; 
-        }
-
         public Banco(int numConta, string nome)
         {
             NumConta = numConta;
             Nome = nome;
+        }
+
+        public Banco(int numConta, string nome, double inicial) : this(numConta, nome)
+        {
+            AdicionarDeposito(inicial);
         }
 
 
@@ -38,6 +38,7 @@ namespace Curso_OO
             Inicial += quantidade;
         }
 
+        // Taxa de 5 reais no saque.
         public void AdicionarSaque(double quantidade)
         {
             Inicial -= quantidade + 5;
