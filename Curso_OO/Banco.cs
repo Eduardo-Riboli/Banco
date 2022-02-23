@@ -1,31 +1,31 @@
-﻿using System.Globalization;
+using System.Globalization;
 
 namespace Curso_OO
 {
     internal class Banco
     {
-        public string _nome;
+        public string Nome { get; set; }
         public int NumConta { get; private set; }
 
         public double Inicial { get; private set; }
 
         CultureInfo CI = CultureInfo.InvariantCulture;
 
-        public Banco(string nome, int numeroconta, double inicial)
+        public Banco(int numeroconta, string nome, double inicial)
         {
-            _nome = nome; NumConta = numeroconta; Inicial = inicial; 
+            Nome = nome; NumConta = numeroconta; Inicial = inicial; 
         }
 
-        public string Nome
+        public Banco(int numConta, string nome)
         {
-            get { return _nome; }
-            set { _nome = value; }
+            NumConta = numConta;
+            Nome = nome;
         }
 
 
         public override string ToString()
         {
-            return "Conta " + NumConta + ", Titular: " + _nome + ", Saldo: $" + SaldoTotal().ToString("F2", CI);
+            return "Conta " + NumConta + ", Titular: " + Nome + ", Saldo: $" + SaldoTotal().ToString("F2", CI);
         }
 
         public double SaldoTotal()
